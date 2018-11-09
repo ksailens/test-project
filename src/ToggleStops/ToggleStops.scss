@@ -99,7 +99,7 @@ input[type="checkbox"]:checked + label:after
   background: #F1FCFE;
 }
 
-.toggleItem:hover a {
+.toggleItem:hover span {
   visibility: visible;
 }
 
@@ -109,7 +109,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .toggleItem {
-  a {
+  span {
     display: inline-block;
     position: absolute;
     text-decoration: none;
@@ -123,7 +123,7 @@ input[type="checkbox"]:checked + label:before {
     letter-spacing: 1px;
   }
 
-  a:hover {
+  span:hover {
     color: #568DB4;
   }
 }

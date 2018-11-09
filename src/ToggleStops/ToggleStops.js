@@ -75,7 +75,6 @@ class ToggleStops extends Component{
 		nonUniqueStops.push(-1);
 		nonUniqueStops.sort((a, b) => a - b);
 
-		console.log('nonUniqueStops', nonUniqueStops); /*---------------------------------------------------------------------------*/
 // TODO: сортировка после уникальности
 		return _.uniq(nonUniqueStops)
 	}

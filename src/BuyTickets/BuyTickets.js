@@ -3,7 +3,7 @@ import './BuyTickets.scss';
 import logo from '../Img/logoAir.png';
 import Button from "../Button/Button";
 import data from '../data'
-import {sortBy} from 'lodash'
+import _ from 'lodash'
 
 class BuyTickets extends Component {
 
@@ -14,20 +14,20 @@ class BuyTickets extends Component {
 			dayOfWeek: ['Вск', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
 		};
 
-		this.getMoviesFromApiAsync();
+		// this.getMoviesFromApiAsync();
 	}
 
 
-	getMoviesFromApiAsync() {
-		return fetch('http://127.0.0.1:8080/database.json', { mode: 'no-cors' })
-			.then((response) => response.json())
-			.then((responseJson) => {
-				return responseJson;
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-	}
+	// getMoviesFromApiAsync() {
+	// 	return fetch('http://127.0.0.1:8080/database.json', { mode: 'no-cors' })
+	// 		.then((response) => response.json())
+	// 		.then((responseJson) => {
+	// 			return responseJson;
+	// 		})
+	// 		.catch((error) => {
+	// 			console.error(error);
+	// 		});
+	// }
 
 	renderStops(ticket) {
 		let last = ticket.stops % 10;
@@ -89,7 +89,7 @@ class BuyTickets extends Component {
 
 	onDataSave() {
 		console.log('adadadsa')
-		// localStorage.setItem('token', )
+		localStorage.setItem('key', 'value')
 	}
 
 	renderTrip(ticket, index) {
@@ -98,7 +98,8 @@ class BuyTickets extends Component {
 					<div className='forButton'>
 						<img className='logoAir' src={logo} alt="logoAir" />
 						<Button
-							onBuy={this.onDataSave}>
+							onClick={this.onDataSave}
+						>
 							Купить <br/> за <span>{this.renderButton(ticket)} P</span>
 						</Button>
 					</div>
@@ -119,7 +120,7 @@ class BuyTickets extends Component {
 
 	renderTrips() {
 		const {tickets}= data;
-		const newTickets = sortBy(tickets, [ o => o.price]);
+		const newTickets = _.sortBy(tickets, [ ticket => ticket.price]);
 		return newTickets.map((ticket, index) => {
 			return this.renderTrip(ticket, index)
 		})
