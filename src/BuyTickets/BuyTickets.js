@@ -3,12 +3,30 @@ import './BuyTickets.scss';
 import logo from '../Img/logoAir.png';
 import Button from "../Button/Button";
 import data from '../data'
+import {sortBy} from 'lodash'
 
 class BuyTickets extends Component {
 
-	state = {
-		massMonth: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
-		dayOfWeek: ['Вск', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
+	constructor() {
+		super();
+		this.state = {
+			massMonth: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
+			dayOfWeek: ['Вск', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
+		};
+
+		this.getMoviesFromApiAsync();
+	}
+
+
+	getMoviesFromApiAsync() {
+		return fetch('http://127.0.0.1:8080/database.json', { mode: 'no-cors' })
+			.then((response) => response.json())
+			.then((responseJson) => {
+				return responseJson;
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	}
 
 	renderStops(ticket) {
@@ -71,6 +89,7 @@ class BuyTickets extends Component {
 
 	onDataSave() {
 		console.log('adadadsa')
+		// localStorage.setItem('token', )
 	}
 
 	renderTrip(ticket, index) {
@@ -100,7 +119,8 @@ class BuyTickets extends Component {
 
 	renderTrips() {
 		const {tickets}= data;
-		return tickets.map((ticket, index) => {
+		const newTickets = sortBy(tickets, [ o => o.price]);
+		return newTickets.map((ticket, index) => {
 			return this.renderTrip(ticket, index)
 		})
 	}

@@ -1,49 +1,71 @@
 import React, {Component} from 'react';
 import './ToggleStops.scss'
 import data from "../data";
-import {uniq} from 'lodash'
+import _ from 'lodash'
 
 
 class ToggleStops extends Component{
+	constructor() {
+		super();
 
-	renderTextItem() {
-		const uniqS = this.renderUniqValue();
-		console.log(uniqS);
-		for (let i = 0; i <= uniqS.length; i++) {
-			let last = uniqS[i] % 10;
-			//console.log(i)
-			if (last === -1) {
-				return (
-					'Все'
-				)
-			}
-			if (last === 0) {
-				return (
-					'Без пересадок'
-				)
-			}
-			if (last === 1) {
-				return (
-					'1 пересадка'
-				)
-			}
-			if (last === 2 || last === 3 || last === 4) {
-				return (
-					`${last} пересадки`
-				)
-			}
-			if (last >= 5) {
-				return (
-					`${last} пересадок`
-				)
-			}
+		this.state = {
+			transfer: [
+				{
+					id: -1,
+					title: 'Все'
+				},
+				{
+					id: 0,
+					title: 'Без пересадок'
+				},
+				{
+					id: 1,
+					title: 'Все'
+				},
+				{
+					id: -1,
+					title: 'Все'
+				}
+			]
 		}
+	}
+
+	getTransferTitleById(id) {
+		switch(id) {
+			case -1:
+				return 'Все';
+			case 0:
+				return 'Без пересадок';
+			case 1:
+				return '1 пересадка';
+			case 2:
+			case 3:
+			case 4:
+				return `${id} пересадки`;
+			default:
+				return `${id} пересадок`;
+		}
+	}
+
+	handleFilterChange(e) {
+		console.log(e.target.value); /*---------------------------------------------------------------------------*/
+	}
+
+	handleSingleSelect(e) {
+
 	}
 
 	renderItem(index, id) {
 		return (
 			<div key={index} className='toggleItem'>
-				<input type="checkbox" id={id} /><label htmlFor={id}>{this.renderTextItem()}</label><a>ТОЛЬКО</a>
+				<input
+					type="checkbox"
+					value={id}
+					onChange={this.handleFilterChange.bind(this)}
+					{...{id}}
+				/>
+				<label htmlFor={id}>{this.getTransferTitleById(id)}</label>
+				<span onClick={this.handleSingleSelect.bind(this)}>ТОЛЬКО</span>
 			</div>
 		)
 	}
@@ -52,7 +74,10 @@ class ToggleStops extends Component{
 		let nonUniqueStops = this.renderStop();
 		nonUniqueStops.push(-1);
 		nonUniqueStops.sort((a, b) => a - b);
-		return uniq(nonUniqueStops)
+
+		console.log('nonUniqueStops', nonUniqueStops); /*---------------------------------------------------------------------------*/
+// TODO: сортировка после уникальности
+		return _.uniq(nonUniqueStops)
 	}
 
 	renderUniqStops() {
@@ -69,6 +94,7 @@ class ToggleStops extends Component{
 				<h2>Количество пересадок</h2>
 				<div className='toggleList'>
 					{this.renderUniqStops(ticket)}
+
 				</div>
 			</div>
 		)
