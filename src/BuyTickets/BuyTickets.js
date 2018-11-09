@@ -83,7 +83,8 @@ class BuyTickets extends Component {
 	renderButton(ticket) {
 		const priceButton = ticket.price;
 		return (
-			priceButton.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
+			// priceButton.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
+			new Intl.NumberFormat('ru-RU').format(priceButton)
 		)
 	}
 
