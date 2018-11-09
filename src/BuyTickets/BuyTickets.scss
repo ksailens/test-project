@@ -1,0 +1,72 @@
+.BuyTickets {
+  width: 600px;
+  margin-left: 20px;
+}
+
+.trip {
+  position: relative;
+  width: 570px;
+  height: 160px;
+  background: white;
+  border: 1px solid #ecf0f3;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.logoAir {
+  width: 136px;
+  height: 45px;
+  margin-top: 20px;
+}
+
+.forButton {
+  float: left;
+  width: 200px;
+  height: 160px;
+  border-right: 1px solid #eee;
+}
+
+.pointA {
+  margin-left: 25px;
+  margin-top: 17px;
+  float: left;
+  width: 150px;
+  text-align: left;
+  h2 {
+    font-size: 36px;
+    font-family: "Calibri Light", sans-serif;
+    font-weight: 500;
+    margin: 0;
+  }
+  h3 {
+    @extend h2;
+    font-size: 15px;
+  }
+  p {
+    @extend h3;
+    color: #A0A2A1;
+  }
+}
+
+.pointB {
+  @extend .pointA;
+  float: right;
+  text-align: right;
+  margin: 17px 26px 0 0;
+}
+
+.plane {
+  position: absolute;
+  float: left;
+  display: inline-block;
+  width: 115px;
+  font-size: 11px;
+  font-family: "Calibri Light", sans-serif;
+  text-transform: uppercase;
+  color: #A0A2A1;
+  background: url("../Img/plane.png") no-repeat bottom;
+  padding-bottom: 13px;
+  top: 15px;
+  left: 327px;
+}
