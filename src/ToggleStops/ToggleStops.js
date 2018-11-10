@@ -73,10 +73,8 @@ class ToggleStops extends Component{
 	renderUniqValue() {
 		let nonUniqueStops = this.renderStop();
 		nonUniqueStops.push(-1);
-		nonUniqueStops.sort((a, b) => a - b);
-
-// TODO: сортировка после уникальности
-		return _.uniq(nonUniqueStops)
+		const uniqueTransferArray = _.uniq(nonUniqueStops);
+		return uniqueTransferArray.sort((a, b) => a - b);
 	}
 
 	renderUniqStops() {
