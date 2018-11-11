@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './BuyTickets.scss';
-import logo from '../Img/logoAir.png';
-import Button from "../Button/Button";
-import data from '../data'
+import logo from '../../images/logoAir.png';
+import Button from "../../ui/Button/Button";
 import _ from 'lodash'
+import PropTypes from 'prop-types';
 
 class BuyTickets extends Component {
 
@@ -13,21 +13,7 @@ class BuyTickets extends Component {
 			massMonth: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
 			dayOfWeek: ['Вск', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
 		};
-
-		// this.getMoviesFromApiAsync();
 	}
-
-
-	// getMoviesFromApiAsync() {
-	// 	return fetch('http://127.0.0.1:8080/database.json', { mode: 'no-cors' })
-	// 		.then((response) => response.json())
-	// 		.then((responseJson) => {
-	// 			return responseJson;
-	// 		})
-	// 		.catch((error) => {
-	// 			console.error(error);
-	// 		});
-	// }
 
 	renderStops(ticket) {
 		let last = ticket.stops % 10;
@@ -42,7 +28,7 @@ class BuyTickets extends Component {
 				<p className='plane'>{ticket.stops + ' пересадка'}</p>
 			)
 		}
-		if (last === 2 || last === 3 || last === 3) {
+		if (last === 2 || last === 3 || last === 4 ) {
 			return (
 				<p className='plane'>{ticket.stops + ' пересадки'}</p>
 			)
@@ -89,7 +75,7 @@ class BuyTickets extends Component {
 	}
 
 	onDataSave() {
-		console.log('adadadsa')
+		console.log('Она работает');
 		localStorage.setItem('key', 'value')
 	}
 
@@ -120,7 +106,7 @@ class BuyTickets extends Component {
 	}
 
 	renderTrips() {
-		const {tickets}= data;
+		const {tickets}= this.props;
 		const newTickets = _.sortBy(tickets, [ ticket => ticket.price]);
 		return newTickets.map((ticket, index) => {
 			return this.renderTrip(ticket, index)
@@ -135,5 +121,9 @@ class BuyTickets extends Component {
 		)
 	}
 }
+
+BuyTickets.propTypes = {
+	tickets: PropTypes.array,
+};
 
 export default BuyTickets;
