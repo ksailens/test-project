@@ -1,8 +1,8 @@
-test project;
+##test project
 
 was used:
 
-    react js,
-    es6,
-    lodash (underscore),
-    immutability-helper https://github.com/kolodny/immutability-helper
+    -react js,
+    -es6,
+    -lodash (underscore),
+    -immutability-helper https://github.com/kolodny/immutability-helper
