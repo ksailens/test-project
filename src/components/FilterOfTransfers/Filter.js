@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import TransferSelector from './TransferSelector/TransferSelector';
 
-class Filter extends Component {
+class Filter extends Component { // оболочка для фильтра билетов
 	render() {
 		return (
 			<div className={'Filter'}>
@@ -14,7 +14,7 @@ class Filter extends Component {
 	}
 }
 
-Filter.propTypes = {
+Filter.propTypes = { // проверка типов данных
 	data: PropTypes.object,
 	filter: PropTypes.object,
 	updateState: PropTypes.func,

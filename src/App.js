@@ -12,16 +12,16 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			data: null,
-			filter: {
-				transfers: [],
+			data: null, // для данных из json
+			filter: { // для добавления других вариантов сортировок
+				transfers: [],	//массив для накопления "нажатых" значений
 			},
 		};
 
 		this.loadData('database.json');
 	}
 
-	loadData(url) {
+	loadData(url) {// загрузка в state данных из json
 		load(url).then((data) => {
 			this.setState({
 				data: JSON.parse(data)
@@ -29,7 +29,7 @@ class App extends Component {
 		});
 	}
 
-	updateData(fieldName, value) {
+	updateData(fieldName, value) { // обновление данных в стейте
 		this.setState({
 			[fieldName]: value,
 		});
@@ -37,15 +37,14 @@ class App extends Component {
 
 	getFilteredTickets(tickets) {
 		const { transfers } = this.state.filter;
-
-		if (_.isEmpty(transfers)) {
+		if (_.isEmpty(transfers)) { // вернуть полный список билетов, если ни один элемент фильтра не отмечен
 			return tickets;
 		}
 
-		return tickets.filter(ticket => transfers.includes(ticket.stops));
+		return tickets.filter(ticket => transfers.includes(ticket.stops)); // отобразить билеты в соотвествии с фильтром
 	}
 
-	renderHeader() {
+	renderHeader() { // оболочка для хедера
 		return (
 			<header>
 				<img className='mainLogo' src={logo} alt="logo" />
@@ -53,9 +52,9 @@ class App extends Component {
 		)
 	}
 
-	renderContent() {
+	renderContent() { // оболочка для контента
 		const { data } = this.state;
-		if (!data) {
+		if (!data) { // исключение ошибки, если нет данных
 			return;
 		}
 

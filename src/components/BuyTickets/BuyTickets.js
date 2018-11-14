@@ -11,11 +11,11 @@ class BuyTickets extends Component {
 		super();
 		this.state = {
 			massMonth: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
-			dayOfWeek: ['Вск', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
+			dayOfWeek: ['Вск', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'] //массивы для расчета даты отправления и прибытия
 		};
 	}
 
-	renderStops(ticket) {
+	renderStops(ticket) { //проверка на окончание в зависимости от количества поездок
 		let last = ticket.stops % 10;
 
 		if (last === 0) {
@@ -40,7 +40,7 @@ class BuyTickets extends Component {
 		}
 	}
 
-	renderDepartureDay(ticket) {
+	renderDepartureDay(ticket) { // форматирование даты отправления
 		const [day, month, year] = ticket.departure_date.split(".");
 		const dayWeek = this.state.dayOfWeek;
 		const monthYear = this.state.massMonth;
@@ -53,7 +53,7 @@ class BuyTickets extends Component {
 		)
 	}
 
-	renderArrivalDay(ticket) {
+	renderArrivalDay(ticket) { // форматирование даты прибытия
 		const [day, month, year] = ticket.arrival_date.split(".");
 		const dayWeek = this.state.dayOfWeek;
 		const monthYear = this.state.massMonth;
@@ -66,20 +66,20 @@ class BuyTickets extends Component {
 		)
 	}
 
-	renderButton(ticket) {
+	renderButton(ticket) { // форматирование цены билета
 		const priceButton = ticket.price;
 		return (
-			// priceButton.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
-			new Intl.NumberFormat('ru-RU').format(priceButton)
+			// priceButton.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') // через регулярное выражение
+			new Intl.NumberFormat('ru-RU').format(priceButton) // в зависимости от региона
 		)
 	}
 
-	onDataSave() {
+	onDataSave() { // отклик кнопки
 		console.log('Она работает');
 		localStorage.setItem('key', 'value')
 	}
 
-	renderTrip(ticket, index) {
+	renderTrip(ticket, index) { // вывод контента блок билета
 		return (
 				<div key={index} className='trip'>
 					<div className='forButton'>
@@ -105,15 +105,15 @@ class BuyTickets extends Component {
 		);
 	}
 
-	renderTrips() {
+	renderTrips() { //  ...(1) выводим блоки для билетов
 		const {tickets}= this.props;
-		const newTickets = _.sortBy(tickets, [ ticket => ticket.price]);
-		return newTickets.map((ticket, index) => {
+		const newTickets = _.sortBy(tickets, [ ticket => ticket.price]); // новый массив, отсортированный по цене
+		return newTickets.map((ticket, index) => { // берем массив, проходися по нему функцией и ...(1)
 			return this.renderTrip(ticket, index)
 		})
 	}
 
-	render() {
+	render() { // оболочка для блока с билетами
 		return (
 			<div className='BuyTickets'>
 				{this.renderTrips()}
@@ -122,7 +122,7 @@ class BuyTickets extends Component {
 	}
 }
 
-BuyTickets.propTypes = {
+BuyTickets.propTypes = { // проверка типа данных
 	tickets: PropTypes.array,
 };
 

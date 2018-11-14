@@ -1,7 +1,7 @@
 import React from 'react'
 import './Button.scss'
 
-const Button = props => {
+const Button = props => { // оболочка дял кнопки
 
 	return (
 		<button
