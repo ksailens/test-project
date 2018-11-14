@@ -125,7 +125,7 @@ class BuyTickets extends Component {
 
 	render() { // оболочка для блока с билетами
 		return (
-			<div className='BuyTickets col-md-9'>
+			<div className='BuyTickets col-sm-8 col-md-12 col-lg-8'>
 				{this.renderTrips()}
 			</div>
 		)

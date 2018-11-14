@@ -40,19 +40,24 @@ class NumberOfTransfers extends Component {
 		const { filter } = this.props;
 		const { transfers } = filter;
 
-		let index = transfers.indexOf(value);
 		if (transfers.includes(value)) {
+			const index = transfers.indexOf(value);
 			const indexOfAllKey = transfers.indexOf(TRANSFERS_ALL_ID);
+			const $transfersMutate = {};
+
+			if (value !== TRANSFERS_ALL_ID) {
+				$transfersMutate.$splice = [
+					[index, 1],
+					(indexOfAllKey === 0) ? [indexOfAllKey, 1] : []
+				]
+			} else {
+				$transfersMutate.$set = []
+			}
+
 			return update(filter, { // используем метод update из immutability-helper, позволяющий обновлять свойства объектов, не затирая значения
-				transfers: {
-					$splice: [
-						[index, 1], // удаляем 1 элемент, начиная с индекса index (прост удаляем элемент из массива)
-						(indexOfAllKey >= 0) ? [indexOfAllKey, 1] : [], // Удаляем элемент 'Все'(если он есть), если удалился хоть один элемент полного массива с айдишниками пересадок.
-					                                        // indexOf, если не находит элемент, возвращает -1.
-					                                        // Нам нужны только положительные числа или 0.
-					],
-				}
+				transfers: $transfersMutate
 			})
+
 		} else {
 			if (value === TRANSFERS_ALL_ID) { // если принятое значение "-1", в массив записываются все поездки + "-1"
 				return update(filter, {
@@ -78,6 +83,7 @@ class NumberOfTransfers extends Component {
 
 	handleFilterChange(e) { // обновляет стейт при событии onChange
 		const value = parseInt(e.target.value); //
+		console.log('this.filterSelect(value)', this.filterSelect(value)); /*---------------------------------------------------------------------------*/
 		this.props.updateState('filter', this.filterSelect(value));
 	}
 

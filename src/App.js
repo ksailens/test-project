@@ -46,7 +46,7 @@ class App extends Component {
 
 	renderHeader() { // оболочка для хедера
 		return (
-			<header className='py-1 text-center'>
+			<header className='pt-5 mb-5 text-center'>
 				<img className='mainLogo' src={logo} alt="logo" />
 			</header>
 		)
