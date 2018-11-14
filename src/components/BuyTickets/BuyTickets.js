@@ -20,22 +20,22 @@ class BuyTickets extends Component {
 
 		if (last === 0) {
 			return (
-				<p className='plane'/>
+				<p className='plane mt-2 col-md-4'/>
 			)
 		}
 		if (last === 1) {
 			return (
-				<p className='plane'>{ticket.stops + ' пересадка'}</p>
+				<p className='plane mt-2 col-md-4'>{ticket.stops + ' пересадка'}</p>
 			)
 		}
 		if (last === 2 || last === 3 || last === 4 ) {
 			return (
-				<p className='plane'>{ticket.stops + ' пересадки'}</p>
+				<p className='plane mt-2 col-md-4'>{ticket.stops + ' пересадки'}</p>
 			)
 		}
 		if (last >= 5) {
 			return (
-				<p className='plane'>{ticket.stops + ' пересадок'}</p>
+				<p className='plane mt-2 col-md-4'>{ticket.stops + ' пересадок'}</p>
 			)
 		}
 	}
@@ -81,27 +81,37 @@ class BuyTickets extends Component {
 
 	renderTrip(ticket, index) { // вывод контента блок билета
 		return (
-				<div key={index} className='trip'>
-					<div className='forButton'>
-						<img className='logoAir' src={logo} alt="logoAir" />
-						<Button
-							onClick={this.onDataSave}
-						>
-							Купить <br/> за <span>{this.renderButton(ticket)} P</span>
-						</Button>
+			<div key={index} className='container'>
+				<div key={index} className='trip mb-4 row'>
+					<div className='col-md-4'>
+						<div className='forButton pb-4'>
+							<img className='logoAir' src={logo} alt="logoAir" />
+							<Button
+								onClick={this.onDataSave}
+							>
+								Купить <br/> за <span>{this.renderButton(ticket)} P</span>
+							</Button>
+						</div>
 					</div>
-					<div className='pointA'>
-						<h2>{ticket.departure_time}</h2>
-						<h3>{ticket.origin}, {ticket.origin_name}</h3>
-						{this.renderDepartureDay(ticket)}
-					</div>
-					{this.renderStops(ticket)}
-					<div className='pointB'>
-						<h2>{ticket.arrival_time}</h2>
-						<h3>{ticket.destination_name}, {ticket.destination}</h3>
-						{this.renderArrivalDay(ticket)}
+					<div className='col-md-8'>
+						<div className='container'>
+							<div className='row'>
+								<div className='pointA col-md-4'>
+									<h2>{ticket.departure_time}</h2>
+									<h3>{ticket.origin}, {ticket.origin_name}</h3>
+									{this.renderDepartureDay(ticket)}
+								</div>
+								{this.renderStops(ticket)}
+								<div className='pointB col-md-4'>
+									<h2>{ticket.arrival_time}</h2>
+									<h3>{ticket.destination_name}, {ticket.destination}</h3>
+									{this.renderArrivalDay(ticket)}
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
+			</div>
 		);
 	}
 
@@ -115,7 +125,7 @@ class BuyTickets extends Component {
 
 	render() { // оболочка для блока с билетами
 		return (
-			<div className='BuyTickets'>
+			<div className='BuyTickets col-md-9'>
 				{this.renderTrips()}
 			</div>
 		)

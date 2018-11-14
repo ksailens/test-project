@@ -5,7 +5,7 @@ import TransferSelector from './TransferSelector/TransferSelector';
 class Filter extends Component { // оболочка для фильтра билетов
 	render() {
 		return (
-			<div className={'Filter'}>
+			<div className={'Filter mx-4 col-md-3 mb-4'}>
 				<TransferSelector
 					{ ...this.props }
 				/>

@@ -131,7 +131,7 @@ class NumberOfTransfers extends Component {
 
 	renderStops(ticket) { // вывод блока-контента для фильтра
 		return (
-			<div className={'stops'}>
+			<div className={'stops pb-2'}>
 				<h2>Количество пересадок</h2>
 				<div className='toggleList'>
 					{this.renderUniqueStops(ticket)}

@@ -46,7 +46,7 @@ class App extends Component {
 
 	renderHeader() { // оболочка для хедера
 		return (
-			<header>
+			<header className='py-1 text-center'>
 				<img className='mainLogo' src={logo} alt="logo" />
 			</header>
 		)
@@ -59,7 +59,7 @@ class App extends Component {
 		}
 
 		return (
-			<section>
+			<section className='row'>
 				<Filter
 					updateState={this.updateData.bind(this)}
 					{...this.state}
@@ -73,7 +73,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className='App'>
+			<div className='App container'>
 				{ this.renderHeader() }
 				{ this.renderContent() }
 			</div>

@@ -4,28 +4,30 @@ $width1000: 1000px;
 
 .App {
   text-align: center;
+  background-color: $backColor;
 
   header {
-    margin: 0 auto;
-    background-color: $backColor;
-    width: $width1000;
+    /*margin: 0 auto;*/
+    /*width: $width1000;*/
     height: 85px;
-    display: $dispFlex;
-    flex-direction: column;
+    /*display: $dispFlex;*/
+    /*flex-direction: column;*/
     align-items: center;
     justify-content: center;
-    padding-bottom: 40px;
   }
-
 }
 
 section {
-  width: $width1000;
-  background-color: $backColor;
-  display: $dispFlex;
-  margin: 0 auto;
-  padding-bottom: 100px;
+  /*width: $width1000;*/
+  /*display: $dispFlex;*/
+  /*margin: 0 auto;*/
+  /*padding-bottom: 100px;*/
 }
 .mainLogo {
   height: 82px;
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
 }

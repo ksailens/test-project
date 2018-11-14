@@ -1,11 +1,11 @@
 .ToggleStops {
-  width: 240px;
-  margin-left: 100px;
+  /*width: 240px;
+  margin-left: 100px;*/
 }
 
 .stops {
-  width: 230px;
-  padding-bottom: 20px;
+  /*width: 230px;
+  padding-bottom: 20px;*/
   background: white;
   border: 1px solid #ecf0f3;
   border-radius: 5px;
@@ -55,10 +55,10 @@ input[type="checkbox"]:not(:checked) + label:before
 
 input[type="checkbox"]:checked + label:after,
 input[type="checkbox"]:not(:checked) + label:after {
-  left: 7px;
-  top: 7px;
-  width: 6px;
-  height: 3px;
+  left: 6px;
+  top: 6px;
+  width: 8px;
+  height: 5px;
   border-radius: 1px;
   border-left: 2px solid #6AA8D1;
   border-bottom: 2px solid #6AA8D1;
@@ -88,7 +88,7 @@ input[type="checkbox"]:checked + label:after
 
 .toggleItem {
   position: relative;
-  width: 215px;
+  /*width: 215px;*/
   padding-top: 6px;
   padding-bottom: 8px;
   text-align: left;
@@ -130,7 +130,8 @@ input[type="checkbox"]:checked + label:before {
 
 
 label {
-  width: 100px;
+  /*width: 100px;*/
   font-family: Arial, sans-serif;
   font-size: 10pt;
+  margin-bottom: 0;
 }
