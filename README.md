@@ -7,3 +7,4 @@ ___
     - es6,
     - lodash (underscore),
     - immutability-helper: https://github.com/kolodny/immutability-helper
+    - bootstrap
