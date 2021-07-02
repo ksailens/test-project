@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="7px" viewBox="0 0 9 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="close" transform="translate(1.000000, 0.000000)" stroke="#979797">
+            <g id="Group">
+                <path d="M0.35,0.35 L6.65,6.65" id="Line"></path>
+                <path d="M6.65,0.35 L0.35,6.65" id="Line-Copy"></path>
+            </g>
+        </g>
+    </g>
+</svg>
