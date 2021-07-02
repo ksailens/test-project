@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>checkbox / disable</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="checkbox-/-disable" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.348144531">
+        <g id="Group-34-Copy" fill="#FFFFFF" stroke="#9F9F9F" stroke-width="0.7">
+            <rect id="Rectangle-9-Copy-2" filter="url(#filter-1)" x="0.35" y="0.35" width="15.3" height="15.3" rx="2"></rect>
+        </g>
+    </g>
+</svg>

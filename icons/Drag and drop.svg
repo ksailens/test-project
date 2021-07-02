@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="8px" viewBox="0 0 16 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Drag and drop</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Drag-and-drop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Group" stroke="#C7E0F4">
+            <path d="M0,0.363636364 L16,0.363636364" id="Line"></path>
+            <path d="M0,4 L16,4" id="Line-Copy"></path>
+            <path d="M0,7.63636364 L16,7.63636364" id="Line-Copy-2"></path>
+        </g>
+    </g>
+</svg>
